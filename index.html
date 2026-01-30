@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💘</title>
+
+<style>
+/* ===== General Styles ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("https://raw.githubusercontent.com/beamariec08-lgtm/valentine2026/83bad8ba80e5150afb6b64648a89ca0c07f4618b/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== Container ===== */
+.container {
+    position: absolute;
+    top: 75%; /* Moved lower */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+/* ===== Buttons ===== */
+button {
+    font-size: 1.4rem;
+    padding: 14px 28px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#yes {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#no {
+    background-color: #6c757d;
+    color: white;
+    position: absolute;
+}
+
+/* ===== Message ===== */
+#message {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    color: #ff3366;
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+    body {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+        padding-top: 100%; /* Pushed very low */
+        min-width: 260px;
+        min-height: 220px;
+        margin-top: 50px; /* Extra space */
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+
+    #message {
+        font-size: 1.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <button id="yes" onclick="sayYes()">Yes 💘</button>
+    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 💔</button>
+    <div id="message"></div>
+</div>
+
+<script>
+/* ===== Say Yes ===== */
+function sayYes() {
+    document.getElementById("message").innerHTML =
+        "YAY!!! 💕 I knew you'd say yes 😍";
+}
+
+/* ===== Move "No" button ===== */
+function moveNo() {
+    const button = document.getElementById("no");
+    const container = document.querySelector(".container");
+
+    // container dimensions
+    const maxX = container.offsetWidth - button.offsetWidth;
+    const maxY = container.offsetHeight - button.offsetHeight;
+
+    // random position inside container
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
