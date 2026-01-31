@@ -205,114 +205,6 @@ button:active {
     }
 }
 
-/* ===== Font Selection Menu ===== */
-.font-selector {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    z-index: 1000;
-    max-width: 220px;
-    border: 3px solid #ff3366;
-}
-
-.font-selector h3 {
-    margin: 0 0 15px 0;
-    font-family: 'Playfair Display', serif;
-    color: #ff3366;
-    font-size: 1.1rem;
-    text-align: center;
-    border-bottom: 2px dashed #ffccd5;
-    padding-bottom: 8px;
-}
-
-.font-option {
-    padding: 10px 15px;
-    margin: 8px 0;
-    background: white;
-    border: 2px solid #ffccd5;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-    font-family: inherit;
-}
-
-.font-option:hover {
-    background: #fff0f3;
-    transform: translateX(5px);
-    border-color: #ff3366;
-}
-
-.font-option.active {
-    background: linear-gradient(135deg, #ffccd5, #ffb3c1);
-    border-color: #ff3366;
-    font-weight: bold;
-}
-
-/* Font classes */
-.font-dancing { font-family: 'Dancing Script', cursive; }
-.font-pacifico { font-family: 'Pacifico', cursive; }
-.font-greatvibes { font-family: 'Great Vibes', cursive; }
-.font-sacramento { font-family: 'Sacramento', cursive; }
-.font-playfair { font-family: 'Playfair Display', serif; }
-
-/* Button Font Options */
-.button-font-section {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 2px solid #495057;
-}
-
-.button-font-section h4 {
-    margin: 0 0 10px 0;
-    font-family: 'Playfair Display', serif;
-    color: #495057;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.button-font-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-}
-
-.button-font-option {
-    padding: 6px 12px;
-    background: white;
-    border: 2px solid #adb5bd;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.2s;
-    font-family: monospace;
-}
-
-.button-font-option:hover {
-    background: #e9ecef;
-    transform: scale(1.05);
-}
-
-.button-font-option.active {
-    background: #495057;
-    color: white;
-    border-color: #343a40;
-}
-
-/* Font-specific styles */
-.font-pixel { font-family: 'Pixelify Sans', cursive; }
-.font-press-start { font-family: 'Press Start 2P', cursive; }
-.font-share-tech { font-family: 'Share Tech Mono', monospace; }
-.font-orbitron { font-family: 'Orbitron', sans-serif; }
-.font-monoton { font-family: 'Monoton', cursive; }
-
 /* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
     .content {
@@ -336,30 +228,6 @@ button:active {
         margin-top: 20px;
     }
     
-    .font-selector {
-        top: 10px;
-        right: 10px;
-        padding: 15px;
-        max-width: 200px;
-    }
-    
-    .font-selector h3 {
-        font-size: 1rem;
-    }
-    
-    .font-option {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-    
-    .button-font-section {
-        padding: 12px;
-    }
-    
-    .button-font-option {
-        padding: 5px 10px;
-        font-size: 0.7rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -384,40 +252,13 @@ button:active {
         font-size: 1.8rem;
     }
     
-    .font-selector {
-        position: static;
-        margin: 20px auto;
-        width: 90%;
-        max-width: 300px;
-    }
 }
 </style>
 </head>
 
 <body>
-<!-- Font Selector Menu -->
-<div class="font-selector">
-    <h3>Choose Main Font:</h3>
-    <div class="font-option active" onclick="changeFont('font-dancing')">Dancing Script</div>
-    <div class="font-option" onclick="changeFont('font-pacifico')">Pacifico</div>
-    <div class="font-option" onclick="changeFont('font-greatvibes')">Great Vibes</div>
-    <div class="font-option" onclick="changeFont('font-sacramento')">Sacramento</div>
-    <div class="font-option" onclick="changeFont('font-playfair')">Playfair Display</div>
-    
-    <div class="button-font-section">
-        <h4>Button Font Style:</h4>
-        <div class="button-font-options">
-            <div class="button-font-option active" onclick="changeButtonFont('font-pixel')">Pixel</div>
-            <div class="button-font-option" onclick="changeButtonFont('font-press-start')">Press Start</div>
-            <div class="button-font-option" onclick="changeButtonFont('font-share-tech')">Tech Mono</div>
-            <div class="button-font-option" onclick="changeButtonFont('font-orbitron')">Orbitron</div>
-            <div class="button-font-option" onclick="changeButtonFont('font-monoton')">Monoton</div>
-        </div>
-    </div>
-</div>
 
 <div class="content">
-    <h1 class="title">Will You Be My Valentine?</h1>
     <button id="yes" onclick="sayYes()">YES 🥰</button>
     <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 💔</button>
     <div id="message"></div>
@@ -628,3 +469,4 @@ window.addEventListener('load', function() {
 </script>
 </body>
 </html>
+
