@@ -253,7 +253,6 @@ button:active {
 
 <body>
 <div class="content">
-    <h1 class="title">Will You Be My Valentine?</h1>
     <button id="yes" onclick="sayYes()">YES 🥰</button>
     <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 💔</button>
     <div id="message"></div>
@@ -289,23 +288,7 @@ function moveNo() {
     
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
-    
-    // Add glitch animation
-    button.style.animation = "glitch 0.3s";
-    
-    button.style.position = 'fixed';
-    button.style.left = x + 'px';
-    button.style.top = y + 'px';
-    
-    setTimeout(() => {
-        button.style.animation = "";
-    }, 300);
-    
-    setTimeout(() => {
-        button.style.position = '';
-        button.style.left = '';
-        button.style.top = '';
-    }, 2000);
+
 }
 
 function createPixelHearts() {
@@ -402,11 +385,7 @@ function playSuccessSound() {
         console.log("Audio not supported or user gesture required");
     }
 }
-
-// Create some initial floating hearts
-for (let i = 0; i < 10; i++) {
-    setTimeout(() => createHeart(), i * 500);
-}
 </script>
 </body>
 </html>
+
