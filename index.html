@@ -7,7 +7,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&family=Sacramento&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Press+Start+2P&family=Monoton&family=Share+Tech+Mono&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===== General Styles ===== */
@@ -19,7 +19,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    font-family: 'Dancing Script', cursive;
 }
 
 /* ===== Main Content Area ===== */
@@ -47,19 +46,19 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* ===== Buttons with Pixel Fonts ===== */
+/* ===== Buttons with Pixelify Sans Font ===== */
 button {
-    font-size: 1.8rem; /* Larger for pixel fonts */
+    font-size: 1.8rem;
     padding: 20px 40px;
     margin: 15px;
     border: none;
-    border-radius: 5px; /* Sharper corners for digital look */
+    border-radius: 5px;
     cursor: pointer;
     display: inline-block;
     transition: all 0.3s ease;
     
-    /* Pixel-style font - using Pixelify Sans as closest to Bitcount */
-    font-family: 'Pixelify Sans', 'Press Start 2P', 'Share Tech Mono', monospace;
+    /* Pixelify Sans font for buttons */
+    font-family: 'Pixelify Sans', cursive;
     font-weight: 700;
     letter-spacing: 1px;
     
@@ -111,12 +110,11 @@ button:active {
     background: linear-gradient(135deg, #ff4d6d, #ff3366);
     color: white;
     border: 3px solid #ff3366;
-    /* Digital glow effect */
+    
     text-shadow: 
         0 0 5px rgba(255, 255, 255, 0.8),
         2px 2px 0 rgba(0, 0, 0, 0.3);
     
-    /* Add pixel grid effect */
     background-image: 
         linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
@@ -149,7 +147,6 @@ button:active {
         0 0 3px rgba(255, 255, 255, 0.5),
         1px 1px 0 rgba(0, 0, 0, 0.3);
     
-    /* Add subtle pixel grid */
     background-image: 
         linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
@@ -227,7 +224,6 @@ button:active {
         font-size: 2rem;
         margin-top: 20px;
     }
-    
 }
 
 @media (max-width: 480px) {
@@ -251,22 +247,19 @@ button:active {
     #message {
         font-size: 1.8rem;
     }
-    
 }
 </style>
 </head>
 
 <body>
-
 <div class="content">
+    <h1 class="title">Will You Be My Valentine?</h1>
     <button id="yes" onclick="sayYes()">YES 🥰</button>
     <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 💔</button>
     <div id="message"></div>
 </div>
 
 <script>
-let currentButtonFont = 'font-pixel';
-
 function sayYes() {
     const message = document.getElementById("message");
     message.innerHTML = "YAY!!! 💖💖💖";
@@ -315,49 +308,6 @@ function moveNo() {
     }, 2000);
 }
 
-function changeFont(fontClass) {
-    // Update body font
-    document.body.className = fontClass;
-    
-    // Update active font option
-    document.querySelectorAll('.font-option').forEach(option => {
-        option.classList.remove('active');
-    });
-    event.currentTarget.classList.add('active');
-}
-
-function changeButtonFont(fontClass) {
-    const buttons = document.querySelectorAll('button');
-    currentButtonFont = fontClass;
-    
-    // Update active button font option
-    document.querySelectorAll('.button-font-option').forEach(option => {
-        option.classList.remove('active');
-    });
-    event.currentTarget.classList.add('active');
-    
-    // Apply font to buttons
-    buttons.forEach(button => {
-        button.className = ''; // Clear previous font classes
-        button.classList.add(fontClass);
-        
-        // Add font-specific styling
-        if (fontClass === 'font-press-start') {
-            button.style.fontSize = '1.4rem';
-            button.style.padding = '18px 30px';
-        } else if (fontClass === 'font-monoton') {
-            button.style.fontSize = '1.6rem';
-            button.style.letterSpacing = '2px';
-        } else if (fontClass === 'font-share-tech') {
-            button.style.fontSize = '1.5rem';
-            button.style.letterSpacing = '0.5px';
-        } else {
-            button.style.fontSize = '1.8rem';
-            button.style.letterSpacing = '1px';
-        }
-    });
-}
-
 function createPixelHearts() {
     for (let i = 0; i < 50; i++) {
         createHeart();
@@ -395,7 +345,7 @@ function createPixelEffect() {
     const pixel = document.createElement('div');
     pixel.innerHTML = '█';
     pixel.style.position = 'absolute';
-    pixel.style.fontFamily = "'Press Start 2P', monospace";
+    pixel.style.fontFamily = "'Pixelify Sans', cursive";
     pixel.style.fontSize = Math.random() * 20 + 10 + 'px';
     pixel.style.color = ['#ff3366', '#ff4d6d', '#ff758f'][Math.floor(Math.random() * 3)];
     pixel.style.left = Math.random() * window.innerWidth + 'px';
@@ -438,9 +388,9 @@ function playSuccessSound() {
         gainNode.connect(audioContext.destination);
         
         // 8-bit style sound
-        oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
-        oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
-        oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+        oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2);
         oscillator.type = 'square';
         
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
@@ -457,16 +407,6 @@ function playSuccessSound() {
 for (let i = 0; i < 10; i++) {
     setTimeout(() => createHeart(), i * 500);
 }
-
-// Initialize button font
-window.addEventListener('load', function() {
-    // Apply initial pixel font to buttons
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-        button.classList.add('font-pixel');
-    });
-});
 </script>
 </body>
 </html>
-
