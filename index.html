@@ -4,11 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Be My Valentine 💘</title>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
 /* ===== General Styles ===== */
 body {
@@ -18,234 +13,76 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
 /* ===== Main Content Area ===== */
 .content {
     position: fixed;
-    bottom: 120px;
+    bottom: 150px; /* Adjust this number to move buttons up/down */
     left: 0;
     width: 100%;
     text-align: center;
-    padding: 0 20px;
 }
 
-/* ===== Title ===== */
-.title {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: #ff3366;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* ===== Buttons with Pixelify Sans Font ===== */
+/* ===== Buttons ===== */
 button {
-    font-size: 1.8rem;
-    padding: 20px 40px;
-    margin: 15px;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
     display: inline-block;
-    transition: all 0.3s ease;
-    
-    /* Pixelify Sans font for buttons */
-    font-family: 'Pixelify Sans', cursive;
-    font-weight: 700;
-    letter-spacing: 1px;
-    
-    box-shadow: 
-        0 4px 0 rgba(0,0,0,0.2),
-        0 6px 20px rgba(0,0,0,0.3);
-    
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Digital/pixel effect */
-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 6px 0 rgba(0,0,0,0.2),
-        0 8px 25px rgba(0,0,0,0.4);
-}
-
-button:active {
-    transform: translateY(4px);
-    box-shadow: 
-        0 0px 0 rgba(0,0,0,0.2),
-        0 2px 10px rgba(0,0,0,0.3);
 }
 
 #yes {
-    background: linear-gradient(135deg, #ff4d6d, #ff3366);
+    background-color: #ff4d6d;
     color: white;
-    border: 3px solid #ff3366;
-    
-    text-shadow: 
-        0 0 5px rgba(255, 255, 255, 0.8),
-        2px 2px 0 rgba(0, 0, 0, 0.3);
-    
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 10px 10px;
-}
-
-#yes:hover {
-    background: linear-gradient(135deg, #ff3366, #ff1a53);
-    box-shadow: 
-        0 6px 0 rgba(0,0,0,0.2),
-        0 8px 25px rgba(255, 77, 109, 0.6);
-    animation: glitch 0.3s;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
 }
 
 #no {
-    background: linear-gradient(135deg, #6c757d, #495057);
+    background-color: #6c757d;
     color: white;
-    border: 3px solid #495057;
-    
-    text-shadow: 
-        0 0 3px rgba(255, 255, 255, 0.5),
-        1px 1px 0 rgba(0, 0, 0, 0.3);
-    
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 8px 8px;
-}
-
-#no:hover {
-    background: linear-gradient(135deg, #495057, #343a40);
-    box-shadow: 
-        0 6px 0 rgba(0,0,0,0.2),
-        0 8px 25px rgba(108, 117, 125, 0.5);
+    position: relative;
 }
 
 /* ===== Message ===== */
 #message {
-    margin-top: 30px;
-    font-size: 2.5rem;
+    margin-top: 20px;
+    font-size: 1.8rem;
     color: #ff3366;
-    min-height: 60px;
-    font-family: 'Great Vibes', cursive;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* ===== Floating Hearts ===== */
-.heart {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.7;
-    animation: floatHeart 5s linear infinite;
-    z-index: -1;
-}
-
-@keyframes floatHeart {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.7;
-    }
-    90% {
-        opacity: 0.7;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
+    min-height: 50px;
 }
 
 /* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
     .content {
-        bottom: 100px;
-        padding: 0 15px;
-    }
-    
-    .title {
-        font-size: 2.2rem;
-        margin-bottom: 30px;
+        bottom: 100px; /* Lower on mobile */
+        padding: 0 20px;
     }
     
     button {
-        font-size: 1.5rem;
-        padding: 16px 30px;
-        margin: 10px;
+        font-size: 1.3rem;
+        padding: 12px 25px;
+        margin: 8px;
     }
     
     #message {
-        font-size: 2rem;
-        margin-top: 20px;
+        font-size: 1.5rem;
+        margin-top: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .content {
-        bottom: 80px;
-    }
-    
-    .title {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
+        bottom: 110px; /* Even lower on small phones */
     }
     
     button {
-        font-size: 1.3rem;
-        padding: 14px 25px;
-        display: block;
-        width: 220px;
-        margin: 12px auto;
-    }
-    
-    #message {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
+        padding: 10px 20px;
     }
 }
 </style>
@@ -253,139 +90,40 @@ button:active {
 
 <body>
 <div class="content">
-    <button id="yes" onclick="sayYes()">YES 🥰</button>
-    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 💔</button>
+    <button id="yes" onclick="sayYes()">Yes 🥰</button>
+    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 💔</button>
     <div id="message"></div>
 </div>
 
 <script>
 function sayYes() {
-    const message = document.getElementById("message");
-    message.innerHTML = "YAY!!! 💖💖💖";
-    message.style.fontSize = "3.5rem";
-    
-    // Add pixelated celebration effect
-    createPixelHearts();
-    
-    // Play success sound
-    playSuccessSound();
-    
-    // Change title to celebration
-    document.querySelector('.title').innerHTML = "YOU SAID YES! 💘";
-    document.querySelector('.title').style.animation = "none";
-    document.querySelector('.title').style.transform = "scale(1.2)";
-    
-    setTimeout(() => {
-        document.querySelector('.title').style.animation = "heartbeat 1.5s infinite";
-        document.querySelector('.title').style.transform = "scale(1)";
-    }, 1000);
+    document.getElementById("message").innerHTML = "YAY!!! 💕💕💕";
 }
 
 function moveNo() {
     const button = document.getElementById("no");
+    const content = document.querySelector('.content');
+    
+    // Get viewport dimensions
     const maxX = window.innerWidth - button.offsetWidth - 40;
     const maxY = window.innerHeight - button.offsetHeight - 40;
     
+    // Random position within viewport
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
-
-}
-
-function createPixelHearts() {
-    for (let i = 0; i < 50; i++) {
-        createHeart();
-    }
     
-    // Create additional pixel effects
-    for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-            createPixelEffect();
-        }, i * 50);
-    }
-}
-
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.innerHTML = '💖';
-    heart.className = 'heart';
+    // Position absolutely within viewport
+    button.style.position = 'fixed';
+    button.style.left = x + 'px';
+    button.style.top = y + 'px';
     
-    const size = Math.random() * 30 + 20;
-    const startX = Math.random() * window.innerWidth;
-    
-    heart.style.left = startX + 'px';
-    heart.style.fontSize = size + 'px';
-    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-    heart.style.animationDelay = Math.random() * 2 + 's';
-    
-    document.body.appendChild(heart);
-    
+    // Reset after 2 seconds so it doesn't get stuck
     setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-function createPixelEffect() {
-    const pixel = document.createElement('div');
-    pixel.innerHTML = '█';
-    pixel.style.position = 'absolute';
-    pixel.style.fontFamily = "'Pixelify Sans', cursive";
-    pixel.style.fontSize = Math.random() * 20 + 10 + 'px';
-    pixel.style.color = ['#ff3366', '#ff4d6d', '#ff758f'][Math.floor(Math.random() * 3)];
-    pixel.style.left = Math.random() * window.innerWidth + 'px';
-    pixel.style.top = Math.random() * window.innerHeight + 'px';
-    pixel.style.opacity = '0.8';
-    pixel.style.zIndex = '999';
-    pixel.style.animation = 'pixelFloat 2s linear forwards';
-    
-    // Add CSS animation
-    const style = document.createElement('style');
-    style.innerHTML = `
-        @keyframes pixelFloat {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    document.body.appendChild(pixel);
-    
-    setTimeout(() => {
-        pixel.remove();
-        style.remove();
+        button.style.position = '';
+        button.style.left = '';
+        button.style.top = '';
     }, 2000);
-}
-
-function playSuccessSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        // 8-bit style sound
-        oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
-        oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1);
-        oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2);
-        oscillator.type = 'square';
-        
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.5);
-    } catch (e) {
-        console.log("Audio not supported or user gesture required");
-    }
 }
 </script>
 </body>
 </html>
-
