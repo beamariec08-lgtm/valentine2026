@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Be My Valentine 💘</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&family=Sacramento&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+<!-- Importing Bitcount Prop Double Font -->
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/bitcount-prop-double">
+
 <style>
 /* ===== General Styles ===== */
 body {
@@ -13,20 +20,36 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
     overflow: hidden;
+    font-family: 'Dancing Script', cursive;
 }
 
 /* ===== Main Content Area ===== */
 .content {
     position: fixed;
-    bottom: 120px; /* Adjust this number to move buttons up/down */
+    bottom: 120px;
     left: 0;
     width: 100%;
     text-align: center;
+    padding: 0 20px;
 }
 
-/* ===== Buttons ===== */
+/* ===== Title ===== */
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #ff3366;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ===== Buttons with Bitcount Prop Double Font ===== */
 button {
     font-size: 1.5rem;
     padding: 15px 30px;
@@ -35,32 +58,210 @@ button {
     border-radius: 12px;
     cursor: pointer;
     display: inline-block;
+    transition: all 0.3s ease;
+    
+    /* Bitcount Prop Double Font */
+    font-family: 'Bitcount Prop Double', 'Orbitron', monospace;
+    font-weight: 700;
+    letter-spacing: 1px;
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+}
+
+/* Fallback font stack if Bitcount Prop Double is not available */
+@supports not (font-family: 'Bitcount Prop Double') {
+    button {
+        font-family: 'Orbitron', 'Monoton', monospace;
+    }
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+button:active {
+    transform: translateY(-1px);
 }
 
 #yes {
-    background-color: #ff4d6d;
+    background: linear-gradient(135deg, #ff4d6d, #ff3366);
     color: white;
+    border: 3px solid #ff3366;
+    /* Add a tech/glow effect for the digital font */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#yes:hover {
+    background: linear-gradient(135deg, #ff3366, #ff1a53);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
 }
 
 #no {
-    background-color: #6c757d;
+    background: linear-gradient(135deg, #6c757d, #495057);
     color: white;
     position: relative;
+    border: 3px solid #495057;
+    /* Add a subtle glow */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+#no:hover {
+    background: linear-gradient(135deg, #495057, #343a40);
+    box-shadow: 0 0 15px rgba(108, 117, 125, 0.4);
 }
 
 /* ===== Message ===== */
 #message {
-    margin-top: 20px;
-    font-size: 1.8rem;
+    margin-top: 30px;
+    font-size: 2.5rem;
     color: #ff3366;
-    min-height: 50px;
+    min-height: 60px;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== Floating Hearts ===== */
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: floatHeart 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== Font Selection Menu ===== */
+.font-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.font-selector h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Playfair Display', serif;
+    color: #ff3366;
+    font-size: 1rem;
+}
+
+.font-option {
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: white;
+    border: 2px solid #ffccd5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.font-option:hover {
+    background: #fff0f3;
+    transform: translateX(5px);
+}
+
+.font-option.active {
+    background: #ffccd5;
+    border-color: #ff3366;
+}
+
+/* Font classes */
+.font-dancing { font-family: 'Dancing Script', cursive; }
+.font-pacifico { font-family: 'Pacifico', cursive; }
+.font-greatvibes { font-family: 'Great Vibes', cursive; }
+.font-sacramento { font-family: 'Sacramento', cursive; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-bitcount { font-family: 'Bitcount Prop Double', 'Orbitron', monospace; }
+
+/* Special button font toggle */
+.button-font-toggle {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px dashed #ff3366;
+}
+
+.button-font-toggle label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    color: #ff3366;
+    font-size: 0.9rem;
+}
+
+.toggle-switch {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.toggle-switch.active {
+    background: #ff3366;
+}
+
+.toggle-switch.active::after {
+    transform: translateX(20px);
 }
 
 /* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
     .content {
-        bottom: 100px; /* Lower on mobile */
-        padding: 0 20px;
+        bottom: 100px;
+        padding: 0 15px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
     }
     
     button {
@@ -70,62 +271,243 @@ button {
     }
     
     #message {
-        font-size: 1.5rem;
-        margin-top: 15px;
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    
+    .font-selector {
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        max-width: 180px;
+    }
+    
+    .font-selector h3 {
+        font-size: 0.9rem;
+    }
+    
+    .font-option {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .button-font-toggle {
+        padding: 8px;
     }
 }
 
 @media (max-width: 480px) {
     .content {
-        bottom: 80px; /* Even lower on small phones */
+        bottom: 80px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
     }
     
     button {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 10px 20px;
+        display: block;
+        width: 200px;
+        margin: 10px auto;
+    }
+    
+    #message {
+        font-size: 1.8rem;
+    }
+    
+    .font-selector {
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
     }
 }
 </style>
 </head>
 
 <body>
+<!-- Font Selector Menu -->
+<div class="font-selector">
+    <h3>Choose a Font:</h3>
+    <div class="font-option active" onclick="changeFont('font-dancing')">Dancing Script</div>
+    <div class="font-option" onclick="changeFont('font-pacifico')">Pacifico</div>
+    <div class="font-option" onclick="changeFont('font-greatvibes')">Great Vibes</div>
+    <div class="font-option" onclick="changeFont('font-sacramento')">Sacramento</div>
+    <div class="font-option" onclick="changeFont('font-playfair')">Playfair Display</div>
+    
+    <div class="button-font-toggle">
+        <label>Bitcount Font for Buttons</label>
+        <div class="toggle-switch active" onclick="toggleButtonFont()"></div>
+    </div>
+</div>
+
 <div class="content">
+    <h1 class="title">Will You Be My Valentine?</h1>
     <button id="yes" onclick="sayYes()">Yes 🥰</button>
     <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 💔</button>
     <div id="message"></div>
 </div>
 
 <script>
+let bitcountEnabled = true;
+
 function sayYes() {
-    document.getElementById("message").innerHTML = "YAY!!!";
+    const message = document.getElementById("message");
+    message.innerHTML = "YAY!!! 💖💖💖";
+    message.style.fontSize = "3.5rem";
+    
+    // Create floating hearts
+    for (let i = 0; i < 50; i++) {
+        createHeart();
+    }
+    
+    // Play success sound
+    playSuccessSound();
 }
 
 function moveNo() {
     const button = document.getElementById("no");
-    const content = document.querySelector('.content');
-    
-    // Get viewport dimensions
     const maxX = window.innerWidth - button.offsetWidth - 40;
     const maxY = window.innerHeight - button.offsetHeight - 40;
     
-    // Random position within viewport
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
     
-    // Position absolutely within viewport
     button.style.position = 'fixed';
     button.style.left = x + 'px';
     button.style.top = y + 'px';
     
-    // Reset after 2 seconds so it doesn't get stuck
     setTimeout(() => {
         button.style.position = '';
         button.style.left = '';
         button.style.top = '';
     }, 2000);
 }
+
+function changeFont(fontClass) {
+    // Update body font
+    document.body.className = fontClass;
+    
+    // Update active font option
+    document.querySelectorAll('.font-option').forEach(option => {
+        option.classList.remove('active');
+    });
+    event.currentTarget.classList.add('active');
+}
+
+function toggleButtonFont() {
+    const toggle = document.querySelector('.toggle-switch');
+    const buttons = document.querySelectorAll('button');
+    
+    bitcountEnabled = !bitcountEnabled;
+    toggle.classList.toggle('active');
+    
+    if (bitcountEnabled) {
+        // Apply Bitcount font
+        buttons.forEach(button => {
+            button.style.fontFamily = "'Bitcount Prop Double', 'Orbitron', monospace";
+            button.style.textTransform = "uppercase";
+            button.style.letterSpacing = "1px";
+            
+            // Add glow effects
+            if (button.id === 'yes') {
+                button.style.textShadow = "0 0 10px rgba(255, 255, 255, 0.5)";
+            } else {
+                button.style.textShadow = "0 0 5px rgba(255, 255, 255, 0.3)";
+            }
+        });
+    } else {
+        // Remove Bitcount font (use default)
+        buttons.forEach(button => {
+            button.style.fontFamily = "";
+            button.style.textTransform = "";
+            button.style.letterSpacing = "";
+            button.style.textShadow = "";
+        });
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '💖';
+    heart.className = 'heart';
+    
+    // Random position and size
+    const size = Math.random() * 30 + 20;
+    const startX = Math.random() * window.innerWidth;
+    
+    heart.style.left = startX + 'px';
+    heart.style.fontSize = size + 'px';
+    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    heart.style.animationDelay = Math.random() * 2 + 's';
+    
+    document.body.appendChild(heart);
+    
+    // Remove heart after animation
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+function playSuccessSound() {
+    // Create a simple beep sound using Web Audio API
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 523.25; // C5
+        oscillator.type = 'sine';
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 1);
+    } catch (e) {
+        console.log("Audio not supported or user gesture required");
+    }
+}
+
+// Create some initial floating hearts
+for (let i = 0; i < 10; i++) {
+    setTimeout(() => createHeart(), i * 500);
+}
+
+// Initialize button font
+window.addEventListener('load', function() {
+    // Check if Bitcount font is available
+    const testElement = document.createElement('span');
+    testElement.style.fontFamily = "'Bitcount Prop Double'";
+    testElement.style.position = 'absolute';
+    testElement.style.opacity = '0';
+    testElement.innerHTML = 'test';
+    document.body.appendChild(testElement);
+    
+    setTimeout(() => {
+        const isAvailable = testElement.offsetWidth !== testElement.parentNode.offsetWidth;
+        document.body.removeChild(testElement);
+        
+        if (!isAvailable) {
+            console.log("Bitcount Prop Double font not available, using fallback");
+            const toggle = document.querySelector('.toggle-switch');
+            toggle.classList.remove('active');
+            bitcountEnabled = false;
+            
+            // Update button text to indicate fallback
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.style.fontFamily = "'Orbitron', 'Monoton', monospace";
+            });
+        }
+    }, 100);
+});
 </script>
 </body>
 </html>
-
-
