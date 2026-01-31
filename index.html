@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,9 +7,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&family=Sacramento&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
-<!-- Importing Bitcount Prop Double Font -->
-<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/bitcount-prop-double">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&family=Sacramento&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Press+Start+2P&family=Monoton&family=Share+Tech+Mono&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===== General Styles ===== */
@@ -49,68 +47,120 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* ===== Buttons with Bitcount Prop Double Font ===== */
+/* ===== Buttons with Pixel Fonts ===== */
 button {
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    margin: 10px;
+    font-size: 1.8rem; /* Larger for pixel fonts */
+    padding: 20px 40px;
+    margin: 15px;
     border: none;
-    border-radius: 12px;
+    border-radius: 5px; /* Sharper corners for digital look */
     cursor: pointer;
     display: inline-block;
     transition: all 0.3s ease;
     
-    /* Bitcount Prop Double Font */
-    font-family: 'Bitcount Prop Double', 'Orbitron', monospace;
+    /* Pixel-style font - using Pixelify Sans as closest to Bitcount */
+    font-family: 'Pixelify Sans', 'Press Start 2P', 'Share Tech Mono', monospace;
     font-weight: 700;
     letter-spacing: 1px;
     
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 
+        0 4px 0 rgba(0,0,0,0.2),
+        0 6px 20px rgba(0,0,0,0.3);
+    
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Fallback font stack if Bitcount Prop Double is not available */
-@supports not (font-family: 'Bitcount Prop Double') {
-    button {
-        font-family: 'Orbitron', 'Monoton', monospace;
-    }
+/* Digital/pixel effect */
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 rgba(0,0,0,0.2),
+        0 8px 25px rgba(0,0,0,0.4);
 }
 
 button:active {
-    transform: translateY(-1px);
+    transform: translateY(4px);
+    box-shadow: 
+        0 0px 0 rgba(0,0,0,0.2),
+        0 2px 10px rgba(0,0,0,0.3);
 }
 
 #yes {
     background: linear-gradient(135deg, #ff4d6d, #ff3366);
     color: white;
     border: 3px solid #ff3366;
-    /* Add a tech/glow effect for the digital font */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    /* Digital glow effect */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        2px 2px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Add pixel grid effect */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
 }
 
 #yes:hover {
     background: linear-gradient(135deg, #ff3366, #ff1a53);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+    box-shadow: 
+        0 6px 0 rgba(0,0,0,0.2),
+        0 8px 25px rgba(255, 77, 109, 0.6);
+    animation: glitch 0.3s;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
 
 #no {
     background: linear-gradient(135deg, #6c757d, #495057);
     color: white;
-    position: relative;
     border: 3px solid #495057;
-    /* Add a subtle glow */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    
+    text-shadow: 
+        0 0 3px rgba(255, 255, 255, 0.5),
+        1px 1px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Add subtle pixel grid */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 8px 8px;
 }
 
 #no:hover {
     background: linear-gradient(135deg, #495057, #343a40);
-    box-shadow: 0 0 15px rgba(108, 117, 125, 0.4);
+    box-shadow: 
+        0 6px 0 rgba(0,0,0,0.2),
+        0 8px 25px rgba(108, 117, 125, 0.5);
 }
 
 /* ===== Message ===== */
@@ -160,40 +210,47 @@ button:active {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     z-index: 1000;
-    max-width: 200px;
+    max-width: 220px;
+    border: 3px solid #ff3366;
 }
 
 .font-selector h3 {
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     font-family: 'Playfair Display', serif;
     color: #ff3366;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: 2px dashed #ffccd5;
+    padding-bottom: 8px;
 }
 
 .font-option {
-    padding: 8px 12px;
-    margin: 5px 0;
+    padding: 10px 15px;
+    margin: 8px 0;
     background: white;
     border: 2px solid #ffccd5;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: all 0.2s;
+    font-family: inherit;
 }
 
 .font-option:hover {
     background: #fff0f3;
     transform: translateX(5px);
+    border-color: #ff3366;
 }
 
 .font-option.active {
-    background: #ffccd5;
+    background: linear-gradient(135deg, #ffccd5, #ffb3c1);
     border-color: #ff3366;
+    font-weight: bold;
 }
 
 /* Font classes */
@@ -202,55 +259,59 @@ button:active {
 .font-greatvibes { font-family: 'Great Vibes', cursive; }
 .font-sacramento { font-family: 'Sacramento', cursive; }
 .font-playfair { font-family: 'Playfair Display', serif; }
-.font-bitcount { font-family: 'Bitcount Prop Double', 'Orbitron', monospace; }
 
-/* Special button font toggle */
-.button-font-toggle {
+/* Button Font Options */
+.button-font-section {
     background: rgba(255, 255, 255, 0.95);
-    padding: 12px;
+    padding: 15px;
     border-radius: 10px;
-    margin-top: 10px;
-    border: 2px dashed #ff3366;
+    margin-top: 15px;
+    border: 2px solid #495057;
 }
 
-.button-font-toggle label {
-    display: block;
-    margin-bottom: 5px;
+.button-font-section h4 {
+    margin: 0 0 10px 0;
     font-family: 'Playfair Display', serif;
-    color: #ff3366;
+    color: #495057;
     font-size: 0.9rem;
+    text-align: center;
 }
 
-.toggle-switch {
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-    background: #ccc;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.3s;
+.button-font-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
 }
 
-.toggle-switch::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
+.button-font-option {
+    padding: 6px 12px;
     background: white;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s;
+    border: 2px solid #adb5bd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+    font-family: monospace;
 }
 
-.toggle-switch.active {
-    background: #ff3366;
+.button-font-option:hover {
+    background: #e9ecef;
+    transform: scale(1.05);
 }
 
-.toggle-switch.active::after {
-    transform: translateX(20px);
+.button-font-option.active {
+    background: #495057;
+    color: white;
+    border-color: #343a40;
 }
+
+/* Font-specific styles */
+.font-pixel { font-family: 'Pixelify Sans', cursive; }
+.font-press-start { font-family: 'Press Start 2P', cursive; }
+.font-share-tech { font-family: 'Share Tech Mono', monospace; }
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
+.font-monoton { font-family: 'Monoton', cursive; }
 
 /* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
@@ -265,9 +326,9 @@ button:active {
     }
     
     button {
-        font-size: 1.3rem;
-        padding: 12px 25px;
-        margin: 8px;
+        font-size: 1.5rem;
+        padding: 16px 30px;
+        margin: 10px;
     }
     
     #message {
@@ -278,21 +339,26 @@ button:active {
     .font-selector {
         top: 10px;
         right: 10px;
-        padding: 10px;
-        max-width: 180px;
+        padding: 15px;
+        max-width: 200px;
     }
     
     .font-selector h3 {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .font-option {
-        padding: 6px 10px;
-        font-size: 0.8rem;
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
     
-    .button-font-toggle {
-        padding: 8px;
+    .button-font-section {
+        padding: 12px;
+    }
+    
+    .button-font-option {
+        padding: 5px 10px;
+        font-size: 0.7rem;
     }
 }
 
@@ -303,15 +369,15 @@ button:active {
     
     .title {
         font-size: 1.8rem;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
     
     button {
-        font-size: 1.1rem;
-        padding: 10px 20px;
+        font-size: 1.3rem;
+        padding: 14px 25px;
         display: block;
-        width: 200px;
-        margin: 10px auto;
+        width: 220px;
+        margin: 12px auto;
     }
     
     #message {
@@ -331,41 +397,55 @@ button:active {
 <body>
 <!-- Font Selector Menu -->
 <div class="font-selector">
-    <h3>Choose a Font:</h3>
+    <h3>Choose Main Font:</h3>
     <div class="font-option active" onclick="changeFont('font-dancing')">Dancing Script</div>
     <div class="font-option" onclick="changeFont('font-pacifico')">Pacifico</div>
     <div class="font-option" onclick="changeFont('font-greatvibes')">Great Vibes</div>
     <div class="font-option" onclick="changeFont('font-sacramento')">Sacramento</div>
     <div class="font-option" onclick="changeFont('font-playfair')">Playfair Display</div>
     
-    <div class="button-font-toggle">
-        <label>Bitcount Font for Buttons</label>
-        <div class="toggle-switch active" onclick="toggleButtonFont()"></div>
+    <div class="button-font-section">
+        <h4>Button Font Style:</h4>
+        <div class="button-font-options">
+            <div class="button-font-option active" onclick="changeButtonFont('font-pixel')">Pixel</div>
+            <div class="button-font-option" onclick="changeButtonFont('font-press-start')">Press Start</div>
+            <div class="button-font-option" onclick="changeButtonFont('font-share-tech')">Tech Mono</div>
+            <div class="button-font-option" onclick="changeButtonFont('font-orbitron')">Orbitron</div>
+            <div class="button-font-option" onclick="changeButtonFont('font-monoton')">Monoton</div>
+        </div>
     </div>
 </div>
 
 <div class="content">
     <h1 class="title">Will You Be My Valentine?</h1>
-    <button id="yes" onclick="sayYes()">Yes 🥰</button>
-    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 💔</button>
+    <button id="yes" onclick="sayYes()">YES 🥰</button>
+    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 💔</button>
     <div id="message"></div>
 </div>
 
 <script>
-let bitcountEnabled = true;
+let currentButtonFont = 'font-pixel';
 
 function sayYes() {
     const message = document.getElementById("message");
     message.innerHTML = "YAY!!! 💖💖💖";
     message.style.fontSize = "3.5rem";
     
-    // Create floating hearts
-    for (let i = 0; i < 50; i++) {
-        createHeart();
-    }
+    // Add pixelated celebration effect
+    createPixelHearts();
     
     // Play success sound
     playSuccessSound();
+    
+    // Change title to celebration
+    document.querySelector('.title').innerHTML = "YOU SAID YES! 💘";
+    document.querySelector('.title').style.animation = "none";
+    document.querySelector('.title').style.transform = "scale(1.2)";
+    
+    setTimeout(() => {
+        document.querySelector('.title').style.animation = "heartbeat 1.5s infinite";
+        document.querySelector('.title').style.transform = "scale(1)";
+    }, 1000);
 }
 
 function moveNo() {
@@ -376,9 +456,16 @@ function moveNo() {
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
     
+    // Add glitch animation
+    button.style.animation = "glitch 0.3s";
+    
     button.style.position = 'fixed';
     button.style.left = x + 'px';
     button.style.top = y + 'px';
+    
+    setTimeout(() => {
+        button.style.animation = "";
+    }, 300);
     
     setTimeout(() => {
         button.style.position = '';
@@ -398,35 +485,48 @@ function changeFont(fontClass) {
     event.currentTarget.classList.add('active');
 }
 
-function toggleButtonFont() {
-    const toggle = document.querySelector('.toggle-switch');
+function changeButtonFont(fontClass) {
     const buttons = document.querySelectorAll('button');
+    currentButtonFont = fontClass;
     
-    bitcountEnabled = !bitcountEnabled;
-    toggle.classList.toggle('active');
+    // Update active button font option
+    document.querySelectorAll('.button-font-option').forEach(option => {
+        option.classList.remove('active');
+    });
+    event.currentTarget.classList.add('active');
     
-    if (bitcountEnabled) {
-        // Apply Bitcount font
-        buttons.forEach(button => {
-            button.style.fontFamily = "'Bitcount Prop Double', 'Orbitron', monospace";
-            button.style.textTransform = "uppercase";
-            button.style.letterSpacing = "1px";
-            
-            // Add glow effects
-            if (button.id === 'yes') {
-                button.style.textShadow = "0 0 10px rgba(255, 255, 255, 0.5)";
-            } else {
-                button.style.textShadow = "0 0 5px rgba(255, 255, 255, 0.3)";
-            }
-        });
-    } else {
-        // Remove Bitcount font (use default)
-        buttons.forEach(button => {
-            button.style.fontFamily = "";
-            button.style.textTransform = "";
-            button.style.letterSpacing = "";
-            button.style.textShadow = "";
-        });
+    // Apply font to buttons
+    buttons.forEach(button => {
+        button.className = ''; // Clear previous font classes
+        button.classList.add(fontClass);
+        
+        // Add font-specific styling
+        if (fontClass === 'font-press-start') {
+            button.style.fontSize = '1.4rem';
+            button.style.padding = '18px 30px';
+        } else if (fontClass === 'font-monoton') {
+            button.style.fontSize = '1.6rem';
+            button.style.letterSpacing = '2px';
+        } else if (fontClass === 'font-share-tech') {
+            button.style.fontSize = '1.5rem';
+            button.style.letterSpacing = '0.5px';
+        } else {
+            button.style.fontSize = '1.8rem';
+            button.style.letterSpacing = '1px';
+        }
+    });
+}
+
+function createPixelHearts() {
+    for (let i = 0; i < 50; i++) {
+        createHeart();
+    }
+    
+    // Create additional pixel effects
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            createPixelEffect();
+        }, i * 50);
     }
 }
 
@@ -435,7 +535,6 @@ function createHeart() {
     heart.innerHTML = '💖';
     heart.className = 'heart';
     
-    // Random position and size
     const size = Math.random() * 30 + 20;
     const startX = Math.random() * window.innerWidth;
     
@@ -446,14 +545,49 @@ function createHeart() {
     
     document.body.appendChild(heart);
     
-    // Remove heart after animation
     setTimeout(() => {
         heart.remove();
     }, 6000);
 }
 
+function createPixelEffect() {
+    const pixel = document.createElement('div');
+    pixel.innerHTML = '█';
+    pixel.style.position = 'absolute';
+    pixel.style.fontFamily = "'Press Start 2P', monospace";
+    pixel.style.fontSize = Math.random() * 20 + 10 + 'px';
+    pixel.style.color = ['#ff3366', '#ff4d6d', '#ff758f'][Math.floor(Math.random() * 3)];
+    pixel.style.left = Math.random() * window.innerWidth + 'px';
+    pixel.style.top = Math.random() * window.innerHeight + 'px';
+    pixel.style.opacity = '0.8';
+    pixel.style.zIndex = '999';
+    pixel.style.animation = 'pixelFloat 2s linear forwards';
+    
+    // Add CSS animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes pixelFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(pixel);
+    
+    setTimeout(() => {
+        pixel.remove();
+        style.remove();
+    }, 2000);
+}
+
 function playSuccessSound() {
-    // Create a simple beep sound using Web Audio API
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioContext.createOscillator();
@@ -462,14 +596,17 @@ function playSuccessSound() {
         oscillator.connect(gainNode);
         gainNode.connect(audioContext.destination);
         
-        oscillator.frequency.value = 523.25; // C5
-        oscillator.type = 'sine';
+        // 8-bit style sound
+        oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+        oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+        oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+        oscillator.type = 'square';
         
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
         
         oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 1);
+        oscillator.stop(audioContext.currentTime + 0.5);
     } catch (e) {
         console.log("Audio not supported or user gesture required");
     }
@@ -482,31 +619,11 @@ for (let i = 0; i < 10; i++) {
 
 // Initialize button font
 window.addEventListener('load', function() {
-    // Check if Bitcount font is available
-    const testElement = document.createElement('span');
-    testElement.style.fontFamily = "'Bitcount Prop Double'";
-    testElement.style.position = 'absolute';
-    testElement.style.opacity = '0';
-    testElement.innerHTML = 'test';
-    document.body.appendChild(testElement);
-    
-    setTimeout(() => {
-        const isAvailable = testElement.offsetWidth !== testElement.parentNode.offsetWidth;
-        document.body.removeChild(testElement);
-        
-        if (!isAvailable) {
-            console.log("Bitcount Prop Double font not available, using fallback");
-            const toggle = document.querySelector('.toggle-switch');
-            toggle.classList.remove('active');
-            bitcountEnabled = false;
-            
-            // Update button text to indicate fallback
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.style.fontFamily = "'Orbitron', 'Monoton', monospace";
-            });
-        }
-    }, 100);
+    // Apply initial pixel font to buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.classList.add('font-pixel');
+    });
 });
 </script>
 </body>
